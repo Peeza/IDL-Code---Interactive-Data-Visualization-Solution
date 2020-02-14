@@ -1,0 +1,299 @@
+;1 AU
+pro AU1_FinalGraph
+
+
+bin_size=1.0
+;===========================31=============================================================================
+
+;w = WINDOW(WINDOW_TITLE=title_name, DIMENSIONS=[800,800])
+; Parker Wave file
+
+n = 1000
+AB=fltarr(n)
+angle = fltarr(n)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;Parker
+  FNAME_tr1 = '~/Bgia_050_par/05AU_Vrms00000.dat'   & print, fname_tr1
+  tr1 = readfile_10column(FNAME_tr1)
+  x = tr1.one
+  y = tr1.two
+  z = tr1.three
+  Xp = x[-1]   ;Parkers final X Coord. (Xp)
+  yp = y[-1];Parkers final Y Coord. (Yp)
+  Zp=z[-1]  ;Parkers final Z Coord. (Zp)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;1 AU Vrms 600
+  FNAME_tr2 = '~/Bgia_050_par/05AU_Vrms00600.dat'    & print, fname_tr2
+  tr2 = readfile_10column(FNAME_tr2)
+  x1 = tr2.one
+  y1 = tr2.two
+  z1 = tr2.three
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  AB =  X1 *  Xp + Y1 * Yp + Z1 * Zp
+  Amag = SQRT( X1^2 + Y1^2 + Z1^2)
+  Bmag = SQRT( Xp^2 + Yp^2 + Zp^2)
+  angle = acos(AB / Amag / Bmag)
+
+data600 = 180. / !PI * angle
+
+cgHistoplot, data600, BINSIZE=bin_size, color='red';/FILL, POLYCOLOR='sky blue', MININPUT=0.0
+
+;###############################################################################################
+;###############################################################################################
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;1 AU Vrms 1000
+FNAME_tr2 = '~/Bgia_050_par/05AU_Vrms01000.dat'    & print, fname_tr2
+tr2 = readfile_10column(FNAME_tr2)
+x2 = tr2.one
+y2 = tr2.two
+z2 = tr2.three
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+AB =  X2 *  Xp + Y2 * Yp + Z2 * Zp
+Amag = SQRT( X2^2 + Y2^2 + Z2^2)
+Bmag = SQRT( Xp^2 + Yp^2 + Zp^2)
+angle = acos(AB / Amag / Bmag)
+
+data1000 = 180. / !PI * angle
+
+cgHistoplot, data1000, BINSIZE=bin_size, color='blue', /OPLOT;/FILL, POLYCOLOR='royal blue', MININPUT=0.0
+
+;###############################################################################################
+;###############################################################################################
+
+
+;1 AU Vrms 2000
+FNAME_tr2 = '~/Bgia_050_par/05AU_Vrms02000.dat'    & print, fname_tr2
+tr2 = readfile_10column(FNAME_tr2)
+x3 = tr2.one
+y3 = tr2.two
+z3 = tr2.three
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+AB =  X3 *  Xp + Y3 * Yp + Z3 * Zp
+Amag = SQRT( X3^2 + Y3^2 + Z3^2)
+Bmag = SQRT( Xp^2 + Yp^2 + Zp^2)
+angle = acos(AB / Amag / Bmag)
+
+data2000 = 180. / !PI * angle
+
+cgHistoplot, data2000, BINSIZE=bin_size, color='Green', /OPLOT
+
+
+;###############################################################################################
+;###############################################################################################
+
+
+;1 AU Vrms 4000
+FNAME_tr2 = '~/Bgia_050_par/05AU_Vrms04000.dat'    & print, fname_tr2
+tr2 = readfile_10column(FNAME_tr2)
+x4 = tr2.one
+y4 = tr2.two
+z4 = tr2.three
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+AB =  X4 *  Xp + Y4 * Yp + Z4 * Zp
+Amag = SQRT( X4^2 + Y4^2 + Z4^2)
+Bmag = SQRT( Xp^2 + Yp^2 + Zp^2)
+angle = acos(AB / Amag / Bmag)
+
+data4000 = 180. / !PI * angle
+
+cgHistoplot, data4000, BINSIZE=bin_size, color='Purple', /OPLOT
+
+
+;AU05
+
+
+
+pro AU1_FinalGraph
+
+
+bin_size=1.0
+;===========================31=============================================================================
+
+;w = WINDOW(WINDOW_TITLE=title_name, DIMENSIONS=[800,800])
+; Parker Wave file
+
+n = 1000
+AB=fltarr(n)
+angle = fltarr(n)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;Parker
+  FNAME_tr1 = '~/Bgia_050_par/05AU_Vrms00000.dat'   & print, fname_tr1
+  tr1 = readfile_10column(FNAME_tr1)
+  x = tr1.one
+  y = tr1.two
+  z = tr1.three
+  Xp = x[-1]   ;Parkers final X Coord. (Xp)
+  yp = y[-1];Parkers final Y Coord. (Yp)
+  Zp=z[-1]  ;Parkers final Z Coord. (Zp)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;1 AU Vrms 600
+  FNAME_tr2 = '~/Bgia_050_par/05AU_Vrms00600.dat'    & print, fname_tr2
+  tr2 = readfile_10column(FNAME_tr2)
+  x1 = tr2.one
+  y1 = tr2.two
+  z1 = tr2.three
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  AB =  X1 *  Xp + Y1 * Yp + Z1 * Zp
+  Amag = SQRT( X1^2 + Y1^2 + Z1^2)
+  Bmag = SQRT( Xp^2 + Yp^2 + Zp^2)
+  angle = acos(AB / Amag / Bmag)
+
+data600 = 180. / !PI * angle
+
+cgHistoplot, data600, BINSIZE=bin_size, color='red';/FILL, POLYCOLOR='sky blue', MININPUT=0.0
+
+;###############################################################################################
+;###############################################################################################
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;1 AU Vrms 1000
+FNAME_tr2 = '~/Bgia_050_par/05AU_Vrms01000.dat'    & print, fname_tr2
+tr2 = readfile_10column(FNAME_tr2)
+x2 = tr2.one
+y2 = tr2.two
+z2 = tr2.three
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+AB =  X2 *  Xp + Y2 * Yp + Z2 * Zp
+Amag = SQRT( X2^2 + Y2^2 + Z2^2)
+Bmag = SQRT( Xp^2 + Yp^2 + Zp^2)
+angle = acos(AB / Amag / Bmag)
+
+data1000 = 180. / !PI * angle
+
+cgHistoplot, data1000, BINSIZE=bin_size, color='blue', /OPLOT;/FILL, POLYCOLOR='royal blue', MININPUT=0.0
+
+;###############################################################################################
+;###############################################################################################
+
+
+;1 AU Vrms 2000
+FNAME_tr2 = '~/Bgia_050_par/05AU_Vrms02000.dat'    & print, fname_tr2
+tr2 = readfile_10column(FNAME_tr2)
+x3 = tr2.one
+y3 = tr2.two
+z3 = tr2.three
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+AB =  X3 *  Xp + Y3 * Yp + Z3 * Zp
+Amag = SQRT( X3^2 + Y3^2 + Z3^2)
+Bmag = SQRT( Xp^2 + Yp^2 + Zp^2)
+angle = acos(AB / Amag / Bmag)
+
+data2000 = 180. / !PI * angle
+
+cgHistoplot, data2000, BINSIZE=bin_size, color='Green', /OPLOT
+
+
+;###############################################################################################
+;###############################################################################################
+
+
+;1 AU Vrms 4000
+FNAME_tr2 = '~/Bgia_050_par/05AU_Vrms04000.dat'    & print, fname_tr2
+tr2 = readfile_10column(FNAME_tr2)
+x4 = tr2.one
+y4 = tr2.two
+z4 = tr2.three
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+AB =  X4 *  Xp + Y4 * Yp + Z4 * Zp
+Amag = SQRT( X4^2 + Y4^2 + Z4^2)
+Bmag = SQRT( Xp^2 + Yp^2 + Zp^2)
+angle = acos(AB / Amag / Bmag)
+
+data4000 = 180. / !PI * angle
+
+cgHistoplot, data4000, BINSIZE=bin_size, color='Purple', /OPLOT
+
+
+
+
+
+
+end
+
+
+
+
+;READING FILES IN
+
+function readfile_10column, file
+  compile_opt idl2
+  IF N_ELEMENTS(file) EQ 0 THEN file = DIALOG_PICKFILE(/MUST_EXIST, /READ)
+  IF file EQ '' THEN MESSAGE, 'No file provided'
+  str = {one:0d,  two:0d,  three:0d };, four:0d, five:0d, six:0d, seven:0d, eight:0d, nine:0d, ten:0d}
+  OPENR, lun, file, /GET_LUN
+  numLines = FILE_LINES(file)
+  dataArr = STRARR(numLines) ;define a variable to hold the file information
+  READF, lun, dataArr
+  FREE_LUN, lun ;CLOSE not necessary here
+  
+  ;# of header lines 
+  numHeader = 0
+  numData = numLines - numHeader
+  dataStr = REPLICATE(str, numData)
+  numData = numLines - numHeader
+  dataStr = REPLICATE(str, numData)
+  READS, dataArr[numHeader:*], dataStr
+  ;print, datastr[0:3].Br
+  ; print, datastr[0:3].Bphi
+  return, dataStr
+end
+
+
+;COMBINING FILES
+
+pro read_write_3column
+  imin = 0
+  for ai = imin, imin+63 do begin
+    ;input_name = string('~/55/0600_100mev/oukh/traj',ai,'.dat','(a26,i03,a4)')  &    v= readfile_13taee(input_name)
+    input_name = string('~/Bgia_050_par_1000lines_0600/','B', ai,'Vrms00600.dat','(a30,a1,i03,a13)')  &    v= readfile_10column(input_name)
+    if (ai eq imin)then x = v.one    else  x = [x, v.one]
+    if (ai eq imin)then y = v.two     else  y = [y, v.two]
+    if (ai eq imin)then z = v.three   else  z = [z, v.three]
+
+  endfor
+
+  dataformat='(e15.8,4x,e15.8,4x,e15.8)'
+  output_name = '~/Bgia_050_par_1000lines_0600/10AU_Vrms00600.dat'
+  OPENW, lun, output_name, /GET_LUN
+  n = n_elements(x)   & print, 'num elements',n
+
+
+
+  FOR i = 0l, (n-1l) do PRINTF, lun, x[i], y[i], z[i], format = dataformat
+  FREE_LUN, lun ;CLOSE not necessary here
+
+
+
+
+
+end
+
+
+
+;PLOTTING 3d/2d
+
+pro plot_B
+ 
+;this code plots 8 different B lines in seperate windows
+
+  POS_PLOT=[.1,.15,.9,.9]
+title_name = 'title_name'
+  ;===========================31=============================================================================
+  
+  w = WINDOW(WINDOW_TITLE=title_name, DIMENSIONS=[800,800])
+  imin=0 &   imax=imin+0
+  for i=imin, imax do begin
+    FNAME_tr1 = string('~/Bgia_050_par/','B',i,'Vrms04000.dat','(A15,a1,I03,A13)')   & print, fname_tr1
+    tr1 = readfile_10column(FNAME_tr1)
+    x = tr1.one
+    y = tr1.two
+    z = tr1.three
+    pic = PLOT3d( x  , y,  z  ,color='red'  , /CURRENT, overplot=1, font_size=15, FONT_STYLE='Bold', thick = '3',position=pos_plot) 
+  endfor
+
+end
